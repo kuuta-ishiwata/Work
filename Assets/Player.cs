@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class Player : MonoBehaviour
 {
     public Rigidbody rb;
 
-    float radius =50.0f;
-    float speed = 2.0f;
-    float Length = 0.0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,27 +19,31 @@ public class Player : MonoBehaviour
 
         Vector3 v = rb.velocity;
 
-        Vector3 velocity = new Vector3(0.2f, 0.0f, 0.0f);
-        Vector3 velocity2 = new Vector3(-30.0f, 0.0f, 0.0f);
+        Vector3 velovity = new Vector3(30.0f, 0, 0);
 
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    rb.velocity = velocity;
-        //}
-        //else if(Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    rb.velocity = velocity2;
-        //}
-
-
-
-
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (UnityEngine.Input.GetKey(KeyCode.UpArrow))
         {
-             transform.RotateAround(velocity, Vector3.up, radius * Time.deltaTime);
-            
+            transform.position += transform.rotation * velovity *Time.deltaTime ;
         }
-        
+        else if(UnityEngine.Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.position -= transform.rotation * velovity * Time.deltaTime;
+        }
+
+        if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
+        {
+            Vector3 worldAngle = transform.eulerAngles;
+            worldAngle.y += 0.8f;
+            transform.eulerAngles = worldAngle;
+        }
+        if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
+        {
+            Vector3 worldAngle = transform.eulerAngles;
+            worldAngle.y -= 0.8f;
+            transform.eulerAngles = worldAngle;
+        }
+
+
 
     }
 
