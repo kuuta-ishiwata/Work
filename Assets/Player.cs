@@ -6,9 +6,9 @@ public class Player : MonoBehaviour
 {
     public Rigidbody rb;
 
-    float radius =8.0f;
-    float speed = 10.0f;
-    float Length = 2.0f;
+    float radius =50.0f;
+    float speed = 2.0f;
+    float Length = 0.0f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -20,24 +20,25 @@ public class Player : MonoBehaviour
 
         Vector3 v = rb.velocity;
 
-        Vector3 velocity = new Vector3(30.0f, 0.0f, 0.0f);
+        Vector3 velocity = new Vector3(0.2f, 0.0f, 0.0f);
         Vector3 velocity2 = new Vector3(-30.0f, 0.0f, 0.0f);
 
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            rb.velocity = velocity;
-        }
-        else if(Input.GetKey(KeyCode.DownArrow))
-        {
-            rb.velocity = velocity2;
-        }
+        //if (Input.GetKey(KeyCode.UpArrow))
+        //{
+        //    rb.velocity = velocity;
+        //}
+        //else if(Input.GetKey(KeyCode.DownArrow))
+        //{
+        //    rb.velocity = velocity2;
+        //}
 
 
 
-        if (Input.GetKey(KeyCode.LeftArrow)&&Input.GetKey(KeyCode.UpArrow))
+
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb.velocity = new Vector3(radius * transform.position.x* Mathf.Sin(Time.time * speed),
-                0.5f,0.5f);
+             transform.RotateAround(velocity, Vector3.up, radius * Time.deltaTime);
+            
         }
         
 
