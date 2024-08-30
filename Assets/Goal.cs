@@ -1,30 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour
 {
+
+  
+    public  GameObject goalText;
+    public GameObject goal;
     // Start is called before the first frame update
     void Start()
     {
-        
+        goalText.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
-    private void OnCollisionEnter(Collision collsion)
-    {
 
-        // プレイヤーは初期位置にワープさせる
-        // それ以外のオブジェクトは破壊する
-        if (collsion.gameObject.name == "Player")
+   
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (middle.flag == true)
         {
-            Player player = collsion.gameObject.GetComponent<Player>();
-            player.Goalpos();
+            goalText.SetActive(true);
         }
 
+
     }
+
 }

@@ -1,23 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 using UnityEngine.Windows;
-using static UnityEditor.Progress;
-
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public Rigidbody rb;
     private AudioSource audioSource;
     public GameObject ItemParticle;
-    public GameObject Slope;
-
+    public static float rand;
+    int count = 0;
     Vector3 startposition;
     Vector3 velovity = new Vector3(30.0f, 0, 0);
-
-    bool flag = true;
+    public string nextSceneName;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -55,19 +55,45 @@ public class Player : MonoBehaviour
 
         audioSource = gameObject.GetComponent<AudioSource>();
 
+        if(ItemScript.flag == true)
+        {
+              velovity.x += 0.2f;
+              count+=1;
+              //Debug.Log(count);
+        }
+        if(count >= 550)
+        {
+            velovity = new Vector3(30.0f, 0, 0);
+            ItemScript.flag = false;
+            count = 0;
+        }
+        Debug.Log(velovity);
+
+        if(middle.flag == true && UnityEngine.Input.GetKey(KeyCode.Return))
+        {
+            SceneManager.LoadScene(nextSceneName);
+            return;
+        }
+
+       // if(middle.flag == true)
+       // {
+       //     velovity = new Vector3(0, 0, 0);
+       //     return;
+       // }
+
     }
     private void OnTriggerEnter(Collider other)
     {
         other.gameObject.SetActive(false);
         audioSource.Play();
         Instantiate(ItemParticle, transform.position, Quaternion.identity);
-        int  count = 0 ;
-        count++;
-        if(count == 30)
-        {
-            other.gameObject.SetActive(true);
-        }
 
+        ItemScript.randflag = true;
+        if (ItemScript.randflag == true)
+        {
+            rand = Random.Range(0, 1);
+            Debug.Log(rand);
+        }
     }
 
     public void MoveStartPos()
@@ -75,16 +101,9 @@ public class Player : MonoBehaviour
         transform.position = Vector3.zero;
         transform.position = startposition + Vector3.up * 10f;
         transform.rotation = Quaternion.identity;
-
+        
     }
-   public void Goalpos()
-    {
-        if(flag == true)
-        {
-            flag = false;
-        }
 
-   }
 
     private void OnCollisionEnter(Collision collsion)
     {

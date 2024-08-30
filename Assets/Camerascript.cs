@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Camerascript : MonoBehaviour
 {
@@ -20,8 +21,8 @@ public class Camerascript : MonoBehaviour
         var position = transform.position;
         var rotation = transform.rotation;
         //posiiton
-        position.x = playerposirion.x-7.0f;
-        position.y = playerposirion.y+5.0f;
+        position.x = playerposirion.x-35.5f;
+        position.y = playerposirion.y+25.0f;
         position.z = playerposirion.z;
 
         //-5.0f
@@ -35,35 +36,42 @@ public class Camerascript : MonoBehaviour
         transform.position = position;
         transform.rotation = rotation;
 
-        if (UnityEngine.Input.GetKey(KeyCode.UpArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
-        {
-            transform.position += transform.rotation * velovity * Time.deltaTime;
-        }
-        else if (UnityEngine.Input.GetKey(KeyCode.DownArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
-        {
-            transform.position -= transform.rotation * velovity * Time.deltaTime;
-        }
+        //if (UnityEngine.Input.GetKey(KeyCode.UpArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
+        //{
+        //    transform.position += transform.rotation * velovity * Time.deltaTime;
+        //}
+        //else if (UnityEngine.Input.GetKey(KeyCode.DownArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
+        //{
+        //    transform.position -= transform.rotation * velovity * Time.deltaTime;
+        //}
+        //
+        //if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
+        //{
+        //
+        //    Vector3 worldAngle = transform.eulerAngles;
+        //    worldAngle.y += 0.2f;
+        //
+        //    transform.eulerAngles = worldAngle;
+        //}
+        //if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    Vector3 worldAngle = transform.eulerAngles;
+        //    worldAngle.y -= 0.2f;
+        //
+        //    transform.eulerAngles = worldAngle;
+        //}
 
-        if (UnityEngine.Input.GetKey(KeyCode.RightArrow))
-        {
-
-            Vector3 worldAngle = transform.eulerAngles;
-            Vector3 transformAngle = transform.position;
-            transformAngle.x += 0.5f;
-            worldAngle.y += 0.3f;
-            transform.eulerAngles = worldAngle;
-            transform.position = transformAngle;
-        }
-        if (UnityEngine.Input.GetKey(KeyCode.LeftArrow))
-        {
-            Vector3 worldAngle = transform.eulerAngles;
-            Vector3 transformAngle = transform.position;
-            transformAngle.x -= 0.5f;
-            worldAngle.y -= 0.3f;
-            transform.eulerAngles = worldAngle;
-            transform.position = transformAngle;
-        }
-
-
+        //if (playerrotation.y >= -75.0f)
+        //{
+        //    Vector3 transformAngle = transform.position;
+        //    transformAngle.x -= 15.1f;
+        //    transform.position = transformAngle;
+        //}
+       // if(playerrotation.y >= 140.0f)
+       // {
+       //     Vector3 transformAngle = transform.position;
+       //     transformAngle.x += 5.1f;
+       //     transform.position = transformAngle;
+       // }
     }
 }

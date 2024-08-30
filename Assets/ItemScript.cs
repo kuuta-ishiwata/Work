@@ -1,15 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using JetBrains.Annotations;
 
 public class ItemScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Item;
-    
+    public  TextMeshProUGUI ItemText;
+    public static bool flag = false;
+    public static bool flag1 = false;
+    public static bool randflag = false;
+    public static int count = 0;
+
+
     Vector3 position = Vector3.up;
     void Start()
     {
+       
         int[,] map =
         {
             {1},
@@ -70,7 +79,37 @@ public class ItemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (randflag == true)
+        {
+            if (Player.rand == 0)
+            {
+                flag = true;
+                flag1 = false;
+            }
+
+            if (Player.rand == 1)
+            {
+                flag1 = true;
+                flag = false;
+            }
+
+
+
+            if (flag == true)
+            {
+
+                ItemText.text = "kinoko";
+
+                randflag = false;
+            }
+            if (flag1 == true)
+            {
+
+                ItemText.text = "koura";
+                randflag = false;
+            }
+        }
+
     }
 
     
