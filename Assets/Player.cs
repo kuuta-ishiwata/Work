@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     private AudioSource audioSource;
     public GameObject ItemParticle;
     public static float rand;
-    int count = 0;
     int deadcount = 0;
     Vector3 startposition;
     Vector3 velovity = new Vector3(80.0f, 0, 0);
