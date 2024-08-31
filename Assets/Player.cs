@@ -58,18 +58,6 @@ public class Player : MonoBehaviour
 
         audioSource = gameObject.GetComponent<AudioSource>();
 
-        if(ItemScript.flag == true)
-        {
-              velovity.x += 0.2f;
-              count+=1;
-              //Debug.Log(count);
-        }
-        if(count >= 550)
-        {
-            velovity = new Vector3(30.0f, 0, 0);
-            ItemScript.flag = false;
-            count = 0;
-        }
        // Debug.Log(count);
 
         if(middle.flag == true && UnityEngine.Input.GetKey(KeyCode.Return))

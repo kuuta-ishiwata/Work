@@ -7,8 +7,6 @@ public class SelectScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public string nextSceneName;
-    public string nextSceneName2;
-    public string nextSceneName3;
     void Start()
     {
         
