@@ -9,19 +9,22 @@ using UnityEngine.Windows;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
+    
     public Rigidbody rb;
     private AudioSource audioSource;
     public GameObject ItemParticle;
     public static float rand;
     int count = 0;
+    int deadcount = 0;
     Vector3 startposition;
-    Vector3 velovity = new Vector3(30.0f, 0, 0);
+    Vector3 velovity = new Vector3(80.0f, 0, 0);
     public string nextSceneName;
     
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         startposition = transform.position;
+        
     }
 
     // Update is called once per frame
@@ -67,7 +70,7 @@ public class Player : MonoBehaviour
             ItemScript.flag = false;
             count = 0;
         }
-        Debug.Log(velovity);
+       // Debug.Log(count);
 
         if(middle.flag == true && UnityEngine.Input.GetKey(KeyCode.Return))
         {
@@ -84,16 +87,10 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.SetActive(false);
-        audioSource.Play();
-        Instantiate(ItemParticle, transform.position, Quaternion.identity);
-
-        ItemScript.randflag = true;
-        if (ItemScript.randflag == true)
-        {
-            rand = Random.Range(0, 1);
-            Debug.Log(rand);
-        }
+            other.gameObject.SetActive(false);
+            audioSource.Play();
+            Instantiate(ItemParticle, transform.position, Quaternion.identity);
+            ItemScript.score += 1;
     }
 
     public void MoveStartPos()
@@ -101,7 +98,8 @@ public class Player : MonoBehaviour
         transform.position = Vector3.zero;
         transform.position = startposition + Vector3.up * 10f;
         transform.rotation = Quaternion.identity;
-        
+        deadcount++;
+        Debug.Log(deadcount);
     }
 
 
@@ -147,6 +145,6 @@ public class Player : MonoBehaviour
             velovity = new Vector3(30.0f, 0, 0);
         }
     }
-   
+
 
 }

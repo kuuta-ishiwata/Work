@@ -28,9 +28,12 @@ public class Goal : MonoBehaviour
     {
         if (middle.flag == true)
         {
+            ItemScript.score -= 1;
+        }
+        if(ItemScript.score ==6)
+        {
             goalText.SetActive(true);
         }
-
 
     }
 

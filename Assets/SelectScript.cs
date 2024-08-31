@@ -21,16 +21,6 @@ public class SelectScript : MonoBehaviour
         {
             SceneManager.LoadScene(nextSceneName);
         }
-        if (Input.GetKey(KeyCode.Alpha2))
-        {
-            SceneManager.LoadScene(nextSceneName2);
-        }
-        if (Input.GetKey(KeyCode.Alpha3))
-        {
-            SceneManager.LoadScene(nextSceneName3);
-        }
-
-
     }
 
 }

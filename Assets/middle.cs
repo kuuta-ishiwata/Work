@@ -9,6 +9,7 @@ public class middle : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject Middle;
+    public GameObject goalText;
     public static bool flag = false;
     void Start()
     {
@@ -36,10 +37,9 @@ public class middle : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Middle.SetActive(true);
-        flag = true;
+            goalText.SetActive(true);
     }
-    
-  
+
+
 
 }

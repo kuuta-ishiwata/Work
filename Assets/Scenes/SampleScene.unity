@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e935e6052a5d3ce4a8f101dc2588754e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goal: {fileID: 315534836}
+  Middle: {fileID: 164231331}
 --- !u!65 &164231333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -585,6 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalText: {fileID: 1689965962}
+  goal: {fileID: 315534836}
 --- !u!1 &322058905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,7 +1097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 677079448}
   ItemParticle: {fileID: 8871890311302625756, guid: 0971cc2f24e1ec4479933bc9c4908eec, type: 3}
-  count: 0
+  nextSceneName: TitleScene
 --- !u!136 &677079451
 CapsuleCollider:
   m_ObjectHideFlags: 0

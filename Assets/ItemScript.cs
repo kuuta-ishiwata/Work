@@ -12,36 +12,32 @@ public class ItemScript : MonoBehaviour
     public static bool flag = false;
     public static bool flag1 = false;
     public static bool randflag = false;
-    public static int count = 0;
+    public static int score = 0;
 
 
     Vector3 position = Vector3.up;
     void Start()
     {
-       
+        score = 0;
         int[,] map =
         {
-            {1},
-            {0},{0},{0},{0},{0},{0},
-            {1},
-            {0},{0},{0},{0},{0},{0},
-            {1},
-            {0},{0},{0},{0},{0},{0},
-            {1}
+            {1,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0},
         };
         int lenY = map.GetLength(0);
         int lenX = map.GetLength(1);
-        for (int x = 0; x < 1; x++)
+
+        for (int x = 0; x < 8; x++)
         {
-            for (int y = 0; y < 22; y++)
+            for (int y = 0; y < 2; y++)
             {
-                position.x = -x -10;
+                position.x = +x+50;
                 position.y = +2.5f;
-                position.z = y -10;
+                position.z = y+20.0f;
+
                 if (map[y, x] == 1)
                 {
                     Instantiate(Item, position, Quaternion.identity);
-                   
                 }
             }
         }
@@ -51,26 +47,101 @@ public class ItemScript : MonoBehaviour
         int[,] map2 =
         {
             {1},
-            {0},{0},{0},{0},{0},{0},
-            {1},
-            {0},{0},{0},{0},{0},{0},
-            {1},
-            {0},{0},{0},{0},{0},{0},
-            {1}
         };
         int lenY2 = map.GetLength(0);
         int lenX2 = map.GetLength(1);
         for (int x = 0; x < 1; x++)
         {
-            for (int y = 0; y < 22; y++)
+            for (int y = 0; y < 1; y++)
             {
-                position.x = -x - 20;
+                position.x = +x + 285;
                 position.y = +2.5f;
-                position.z = y - 425;
-                if (map[y, x] == 1)
+                position.z = y - 40.0f;
+                Debug.Log(position);
+                if (map2[y, x] == 1)
                 {
                     Instantiate(Item, position, Quaternion.identity);
+                }
+            }
+        }
 
+        int[,] map3 =
+        {
+            {1},
+        };
+        int lenY3 = map.GetLength(0);
+        int lenX3 = map.GetLength(1);
+        for (int x = 0; x < 1; x++)
+        {
+            for (int y = 0; y < 1; y++)
+            {
+                position.x = +x +300;
+                position.y = +2.5f;
+                position.z = y - 215.0f;
+                Debug.Log(position);
+                if (map2[y, x] == 1)
+                {
+                    Instantiate(Item, position, Quaternion.identity);
+                }
+            }
+        }
+        int[,] map4 =
+       {
+            {1},
+        };
+        int lenY4 = map.GetLength(0);
+        int lenX4 = map.GetLength(1);
+        for (int x = 0; x < 1; x++)
+        {
+            for (int y = 0; y < 1; y++)
+            {
+                position.x = +x + 300;
+                position.y = +2.5f;
+                position.z = y - 295.0f;
+                Debug.Log(position);
+                if (map2[y, x] == 1)
+                {
+                    Instantiate(Item, position, Quaternion.identity);
+                }
+            }
+        }
+        int[,] map5 =
+        {
+            {1},
+        };
+        int lenY5 = map.GetLength(0);
+        int lenX5 = map.GetLength(1);
+        for (int x = 0; x < 1; x++)
+        {
+            for (int y = 0; y < 1; y++)
+            {
+                position.x = x + 255;
+                position.y = +2.5f;
+                position.z = y - 460.0f;
+                Debug.Log(position);
+                if (map2[y, x] == 1)
+                {
+                    Instantiate(Item, position, Quaternion.identity);
+                }
+            }
+        }
+        int[,] map6 =
+      {
+            {1},
+        };
+        int lenY6 = map.GetLength(0);
+        int lenX6 = map.GetLength(1);
+        for (int x = 0; x < 1; x++)
+        {
+            for (int y = 0; y < 1; y++)
+            {
+                position.x = x-100;
+                position.y = +2.5f;
+                position.z = y - 420.0f;
+                Debug.Log(position);
+                if (map2[y, x] == 1)
+                {
+                    Instantiate(Item, position, Quaternion.identity);
                 }
             }
         }
@@ -79,38 +150,10 @@ public class ItemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (randflag == true)
-        {
-            if (Player.rand == 0)
-            {
-                flag = true;
-                flag1 = false;
-            }
-
-            if (Player.rand == 1)
-            {
-                flag1 = true;
-                flag = false;
-            }
-
-
-
-            if (flag == true)
-            {
-
-                ItemText.text = "kinoko";
-
-                randflag = false;
-            }
-            if (flag1 == true)
-            {
-
-                ItemText.text = "koura";
-                randflag = false;
-            }
-        }
-
+       
+            ItemText.text = "SCORE" + score;
+        
     }
 
-    
-}
+
+ }

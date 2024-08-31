@@ -26,6 +26,5 @@ public class DeadZone : MonoBehaviour
             Player player = other.gameObject.GetComponent<Player>();
             player.MoveStartPos();
         }
-       
     }
 }
