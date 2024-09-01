@@ -12,6 +12,8 @@ public class GameManagerScript : MonoBehaviour
     public static bool flag = false;
     void Start()
     {
+
+        score = 0;
         int[,] map =
         {
          {1,0,0,0,0,0,1 }
