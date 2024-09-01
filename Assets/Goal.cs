@@ -18,23 +18,17 @@ public class Goal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
+        if(middle.flag == true && Input.GetKey(KeyCode.Return))
+        {
+            SceneManager.LoadScene("TitleScene");
+        }
+
     }
 
    
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (middle.flag == true)
-        {
-            ItemScript.score -= 1;
-        }
-        if(ItemScript.score ==6)
-        {
-            goalText.SetActive(true);
-        }
 
-    }
 
 }

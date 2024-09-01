@@ -8,22 +8,20 @@ public class middle : MonoBehaviour
 
     // Start is called before the first frame update
 
-    public GameObject Middle;
-    public GameObject goalText;
+    public  GameObject goalText;
     public static bool flag = false;
     void Start()
     {
         flag = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(flag == true)
-        {
-            return;
-        }
+
     }
+
     private void OnCollisionEnter(Collision collsion)
     {
 
@@ -34,10 +32,13 @@ public class middle : MonoBehaviour
         {
             Player player = collsion.gameObject.GetComponent<Player>();
         }
+
+       
     }
     private void OnTriggerEnter(Collider other)
     {
-            goalText.SetActive(true);
+        goalText.SetActive(true);
+        flag = true;
     }
 
 
