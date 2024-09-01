@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
      
         Vector3 v = rb.velocity;
 
-        if (middle.flag ==false)
+        if (middle.flag == false)
         {
             if (UnityEngine.Input.GetKey(KeyCode.UpArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
             {
@@ -56,9 +56,8 @@ public class Player : MonoBehaviour
                 worldAngle.y -= 0.3f;
                 transform.eulerAngles = worldAngle;
             }
+
         }
-
-
         audioSource = gameObject.GetComponent<AudioSource>();
 
        // Debug.Log(count);
@@ -94,9 +93,10 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.identity;
         deadcount += 1;
         audioSource.Play();
+        DeadZone.life--;
         Debug.Log(DeadZone.gameOverFlag);
         Debug.Log(DeadZone.life);
-        if(DeadZone.life == 2)
+        if(DeadZone.life == 0)
         {
             DeadZone.gameOverFlag = true;
         }

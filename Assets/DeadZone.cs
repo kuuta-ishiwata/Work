@@ -20,7 +20,7 @@ public class DeadZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOverFlag == true && Input.GetKey(KeyCode.Return))
+        if (life ==0)
         {
             SceneManager.LoadScene("TitleScene");
         }
@@ -38,7 +38,7 @@ public class DeadZone : MonoBehaviour
             Player player = other.gameObject.GetComponent<Player>();
             player.MoveStartPos();
         }
-        life -= 1;
+ 
         if (life == 0)
         {
             gameOverText.SetActive(true);
