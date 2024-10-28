@@ -24,7 +24,7 @@ public class DeadZone : MonoBehaviour
         {
             SceneManager.LoadScene("TitleScene");
         }
-        lifetext.text = "Life" +life;
+        //lifetext.text = "" +life;
 
     }
 

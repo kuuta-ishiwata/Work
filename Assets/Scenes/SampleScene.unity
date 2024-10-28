@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -76.7, y: -133}
+  m_AnchoredPosition: {x: -251, y: -12}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90405110
@@ -349,13 +349,13 @@ PrefabInstance:
       addedObject: {fileID: 677079449}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 330e13f199423544582fec07a637d792, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 677079448}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 330e13f199423544582fec07a637d792, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 677079451}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 330e13f199423544582fec07a637d792, type: 3}
       insertIndex: -1
       addedObject: {fileID: 677079453}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 330e13f199423544582fec07a637d792, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 677079455}
   m_SourcePrefab: {fileID: 100100000, guid: 330e13f199423544582fec07a637d792, type: 3}
 --- !u!1 &333283705
 GameObject:
@@ -708,33 +708,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 330e13f199423544582fec07a637d792, type: 3}
   m_PrefabInstance: {fileID: 246361747}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &677079448
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677079447}
-  serializedVersion: 4
-  m_Mass: 60
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!114 &677079449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -747,7 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33523773291f6284fa0122f8f21b72d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 677079448}
+  rb: {fileID: 677079455}
   ItemParticle: {fileID: 2240271713997272262, guid: 5bcb048e942c12a419e703611304f885, type: 3}
   nextSceneName: TitleScene
 --- !u!136 &677079451
@@ -757,7 +730,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677079447}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b4b153b9261dec44b9118c5ab438019c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -869,6 +842,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &677079455
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677079447}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.8
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +989,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 2236541852558909930}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848728095}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e7f0ed2efc5d02d4d821d81c030ef03f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1308,7 +1308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81.2, y: -95}
+  m_AnchoredPosition: {x: -250, y: 27}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1016578652
@@ -2418,7 +2418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f74b208ce0fee448ff07ae038147cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Item: {fileID: 3599141674368637000, guid: 212971f05fb4d6c48ad3b88b593e2b28, type: 3}
+  Item: {fileID: 8654790174095231635, guid: c5fc7bdb9a13d9845ba079fd71322c16, type: 3}
   scoreText: {fileID: 1002520280}
 --- !u!4 &1793765201
 Transform:
@@ -2429,7 +2429,7 @@ Transform:
   m_GameObject: {fileID: 1793765199}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.029106, y: 2, z: 21.6}
+  m_LocalPosition: {x: 23.029106, y: 1, z: 21.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

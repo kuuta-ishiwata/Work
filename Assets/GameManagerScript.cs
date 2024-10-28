@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.UIElements;
 public class GameManagerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Item;
     Vector3 position = Vector3.zero;
+    Vector3 rotation = Vector3.zero;
     public static int score = 0;
     public TextMeshProUGUI scoreText;
     public static bool Upflag = false;
     public static bool Downflag = false;
     public static bool bougaiflag = false;
-    public static bool irekaeflag = false;
+    public static bool AllUpFlag = false;
     public static bool AllspeedDown = false;
     public static bool flag = false;
     void Start()
     {
-
+        
         score = 0;
         int[,] map =
         {
-         {1,1,0,0,0,0,0,1 },
-        
+         {1,0,0,0,0,0,0,0 },
+     
+
         };
         int lenY = map.GetLength(0);
         int lenX = map.GetLength(1);
@@ -31,9 +34,10 @@ public class GameManagerScript : MonoBehaviour
         {
             for (int y = 0; y < 1; y++)
             {
-                position.x = x+80;
-                position.y = y+2.5f;
-                position.z = y + 20;
+                position.x = x+73;
+                position.y = y+3.0f;
+                position.z = y + 10;
+              
                 if (map[y, x] == 1)
                 {
                     Instantiate(Item, position, Quaternion.identity);
@@ -54,6 +58,8 @@ public class GameManagerScript : MonoBehaviour
                 position.x = x + 70;//+480;
                 position.y = y + 3.0f;//+ 2.5f;
                 position.z = y + 20f;//-140;
+                rotation.x = x + 2.0f;
+                rotation.y = y + 3.0f;
                 if (map[y, x] == 1)
                 {
                     Instantiate(Item, position, Quaternion.identity);
@@ -71,9 +77,12 @@ public class GameManagerScript : MonoBehaviour
         {
             for (int y = 0; y < 1; y++)
             {
-                position.x = x + 500;
-                position.y = y + 2.5f;
-                position.z = y +205;
+                position.x = x + 73;
+                position.y = y + 3.0f;
+                position.z = y ;
+                rotation.x = x + 2.0f;
+                rotation.y = y + 3.0f;
+                transform.eulerAngles = new Vector3(40, 30, 20);
                 if (map[y, x] == 1)
                 {
                     Instantiate(Item, position, Quaternion.identity);
@@ -92,8 +101,11 @@ public class GameManagerScript : MonoBehaviour
             for (int y = 0; y < 1; y++)
             {
                 position.x = x +50;
-                position.y = y + 2.5f;
+                position.y = y + 3.0f;
                 position.z = y - 420;
+                rotation.x = x + 2.0f;
+                rotation.y = y + 3.0f;
+               
                 if (map[y, x] == 1)
                 {
                     Instantiate(Item, position, Quaternion.identity);
@@ -111,6 +123,8 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        transform.Rotate(new Vector3(0, 0, 30));
         if(Player.rand == 1)
         {
 
@@ -132,8 +146,8 @@ public class GameManagerScript : MonoBehaviour
 
         if (Player.rand == 4)
         {
-            scoreText.text = "irekae";
-            irekaeflag = true;
+            scoreText.text = "Allup";
+            AllUpFlag = true;
         }
         if (Player.rand == 5)
         {

@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     private AudioSource audioSource;
     public GameObject ItemParticle;
     public static int rand;
-    public static int DownCount;
-    public static int AllDownCount;
-   
+    public static int UpCount = 0;
+    public static int DownCount = 0;
+    public static int AllDownCount = 0;
+    public static int AllUpCount = 0;
+
     int deadcount = 0;
     Vector3 startposition;
     Vector3 velovity = new Vector3(30.0f, 0, 0);
@@ -39,11 +41,11 @@ public class Player : MonoBehaviour
         {
             if (UnityEngine.Input.GetKey(KeyCode.UpArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
             {
-                transform.position += transform.rotation * velovity * Time.deltaTime;
+                rb.AddForce(velovity.)
             }
              if (UnityEngine.Input.GetKey(KeyCode.DownArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
             {
-                transform.position -= transform.rotation * velovity * Time.deltaTime;
+                v -= transform.rotation * velovity * Time.deltaTime;
             }
 
             if (UnityEngine.Input.GetKey(KeyCode.UpArrow)&&UnityEngine.Input.GetKey(KeyCode.RightArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
@@ -90,41 +92,64 @@ public class Player : MonoBehaviour
             return;
         }
 
+        //スピードUp
        if(GameManagerScript.Upflag == true)
         {
-            velovity = new Vector3(40.0f, 0, 0);
-   
+            velovity = new Vector3(60.0f, 0, 0);
+            UpCount++;
+            Debug.Log(velovity);
+
         }
    
-        if (GameManagerScript.Upflag == false)
+        if (UpCount >= 420)
         {
-             velovity = new Vector3(30.0f, 0, 0);
+            GameManagerScript.Upflag = false;
+            velovity = new Vector3(30.0f, 0, 0);
+            Debug.Log(velovity);
         }
+        //AllSpeedIp
+        if (GameManagerScript.AllUpFlag== true)
+        {
+            velovity = new Vector3(60.0f, 0, 0);
+            AllUpCount++;
+            Debug.Log(velovity);
 
-
+        }
+        if (AllUpCount >= 420)
+        {
+            GameManagerScript.AllUpFlag = false;
+            velovity = new Vector3(30.0f, 0, 0);
+            Debug.Log(velovity);
+        }
+        //スピードダウン
         if (GameManagerScript.Downflag == true)
         {
             velovity = new Vector3(5.0f, 0, 0);
             DownCount++;
-            Debug.Log(DownCount);
+           
         }
-        if(DownCount >= 110)
+        if(DownCount >= 540)
         {
-            DownCount = 0;
             GameManagerScript.Downflag = false;
+            velovity = new Vector3(30.0f, 0, 0);
+          
         }
-        if (GameManagerScript.Downflag == false)
-        {
-             velovity = new Vector3(30.0f, 0, 0);
-        }
+        //if(GameManagerScript.Downflag == false)
+        //{
+        //    DownCount = 0;
+        //}
+        //Allスピードダウン
         if (GameManagerScript.AllspeedDown == true)
         {
-            Vector3 velovity = new Vector3(5.0f, 0, 0);
-            Debug.Log(velovity);
+            velovity = new Vector3(5.0f, 0, 0);
+            AllDownCount++;
+           
         }
-        if(GameManagerScript.AllspeedDown == false)
+        if (AllDownCount >= 540)
         {
-            Vector3 velovity = new Vector3(30.0f, 0, 0);
+            GameManagerScript.AllspeedDown = false;
+            velovity = new Vector3(30.0f, 0, 0);
+          
         }
 
 
@@ -167,7 +192,6 @@ public class Player : MonoBehaviour
         {
             velovity = Vector3.zero;
         }
-
 
     }
 
