@@ -21,7 +21,7 @@ public class Camerascript : MonoBehaviour
         var position = transform.position;
         var rotation = transform.rotation;
         //posiiton
-        position.x = playerposirion.x-35.5f;
+        position.x = playerposirion.x-20.5f;
         position.y = playerposirion.y+25.0f;
         position.z = playerposirion.z;
 

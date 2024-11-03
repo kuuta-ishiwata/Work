@@ -21,9 +21,10 @@ public class Player : MonoBehaviour
 
     int deadcount = 0;
     Vector3 startposition;
-    Vector3 velovity = new Vector3(30.0f, 0, 0);
+    Vector3 velovity = new Vector3(30.0f, 0.0f, 0);
+    //Vector3 velocity2 = new Vector3(0.0f, -30.0f, 0);
     public string nextSceneName;
-    
+ 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -33,59 +34,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         startposition = transform.position;
-
-        Vector3 v = rb.velocity;
-        if (middle.flag == false)
-        {
-            if (UnityEngine.Input.GetKey(KeyCode.UpArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
-            {
-                rb.AddForce(velovity.)
-            }
-             if (UnityEngine.Input.GetKey(KeyCode.DownArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
-            {
-                v -= transform.rotation * velovity * Time.deltaTime;
-            }
-
-            if (UnityEngine.Input.GetKey(KeyCode.UpArrow)&&UnityEngine.Input.GetKey(KeyCode.RightArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
-            {
-                //transform.position += transform.rotation * velovity * Time.deltaTime;
-                Vector3 worldAngle = transform.eulerAngles;
-                worldAngle.y += 0.3f;
-                transform.eulerAngles = worldAngle;
-            }
-             if (UnityEngine.Input.GetKey(KeyCode.UpArrow)&&UnityEngine.Input.GetKey(KeyCode.LeftArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
-            {
-                //transform.position += transform.rotation * velovity * Time.deltaTime;
-                Vector3 worldAngle = transform.eulerAngles;
-                worldAngle.y -= 0.3f;
-                transform.eulerAngles = worldAngle;
-            }
-            if (UnityEngine.Input.GetKey(KeyCode.DownArrow) && UnityEngine.Input.GetKey(KeyCode.RightArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
-            {
-                //transform.position += transform.rotation * velovity * Time.deltaTime;
-                Vector3 worldAngle = transform.eulerAngles;
-                worldAngle.y += 0.3f;
-                transform.eulerAngles = worldAngle;
-            }
-            if (UnityEngine.Input.GetKey(KeyCode.DownArrow) && UnityEngine.Input.GetKey(KeyCode.LeftArrow) && UnityEngine.Input.GetKey(KeyCode.Space))
-            {
-                //transform.position += transform.rotation * velovity * Time.deltaTime;
-                Vector3 worldAngle = transform.eulerAngles;
-                worldAngle.y -= 0.3f;
-                transform.eulerAngles = worldAngle;
-            }
-
-
-
-
-        }
-        
         audioSource = gameObject.GetComponent<AudioSource>();
-
        // Debug.Log(count);
-
         if(middle.flag == true && UnityEngine.Input.GetKey(KeyCode.Return))
         {
             SceneManager.LoadScene(nextSceneName);

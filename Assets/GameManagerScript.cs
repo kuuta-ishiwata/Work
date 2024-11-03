@@ -35,7 +35,7 @@ public class GameManagerScript : MonoBehaviour
             for (int y = 0; y < 1; y++)
             {
                 position.x = x+73;
-                position.y = y+3.0f;
+                position.y = y+1.0f;
                 position.z = y + 10;
               
                 if (map[y, x] == 1)
@@ -56,7 +56,7 @@ public class GameManagerScript : MonoBehaviour
             for (int y = 0; y < 1; y++)
             {
                 position.x = x + 70;//+480;
-                position.y = y + 3.0f;//+ 2.5f;
+                position.y = y + 1.0f;//+ 2.5f;
                 position.z = y + 20f;//-140;
                 rotation.x = x + 2.0f;
                 rotation.y = y + 3.0f;
@@ -78,7 +78,7 @@ public class GameManagerScript : MonoBehaviour
             for (int y = 0; y < 1; y++)
             {
                 position.x = x + 73;
-                position.y = y + 3.0f;
+                position.y = y + 1.0f;
                 position.z = y ;
                 rotation.x = x + 2.0f;
                 rotation.y = y + 3.0f;
@@ -101,7 +101,7 @@ public class GameManagerScript : MonoBehaviour
             for (int y = 0; y < 1; y++)
             {
                 position.x = x +50;
-                position.y = y + 3.0f;
+                position.y = y + 1.0f;
                 position.z = y - 420;
                 rotation.x = x + 2.0f;
                 rotation.y = y + 3.0f;
