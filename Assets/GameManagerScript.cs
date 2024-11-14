@@ -8,6 +8,7 @@ public class GameManagerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Item;
+    public GameObject ItemParticle;
     Vector3 position = Vector3.zero;
     Vector3 rotation = Vector3.zero;
     public static int score = 0;
@@ -40,7 +41,8 @@ public class GameManagerScript : MonoBehaviour
               
                 if (map[y, x] == 1)
                 {
-                    Instantiate(Item, position, Quaternion.identity);
+                    //Instantiate(Item, position, Quaternion.identity);
+                    ItemParticle.transform.position = position;
                 }
             }
         }
@@ -59,10 +61,11 @@ public class GameManagerScript : MonoBehaviour
                 position.y = y + 1.0f;//+ 2.5f;
                 position.z = y + 20f;//-140;
                 rotation.x = x + 2.0f;
-                rotation.y = y + 3.0f;
+                rotation.y = y + 4.0f;
                 if (map[y, x] == 1)
                 {
-                    Instantiate(Item, position, Quaternion.identity);
+                    //Instantiate(Item, position, Quaternion.identity);
+                    ItemParticle.transform.position = position;
                 }
             }
         }
@@ -81,11 +84,12 @@ public class GameManagerScript : MonoBehaviour
                 position.y = y + 1.0f;
                 position.z = y ;
                 rotation.x = x + 2.0f;
-                rotation.y = y + 3.0f;
+                rotation.y = y + 4.0f;
                 transform.eulerAngles = new Vector3(40, 30, 20);
                 if (map[y, x] == 1)
                 {
-                    Instantiate(Item, position, Quaternion.identity);
+                   // Instantiate(Item, position, Quaternion.identity);
+                    ItemParticle.transform.position = position;
                 }
             }
         }
@@ -104,11 +108,12 @@ public class GameManagerScript : MonoBehaviour
                 position.y = y + 1.0f;
                 position.z = y - 420;
                 rotation.x = x + 2.0f;
-                rotation.y = y + 3.0f;
+                rotation.y = y + 4.0f;
                
                 if (map[y, x] == 1)
                 {
-                    Instantiate(Item, position, Quaternion.identity);
+                    //Instantiate(Item, position, Quaternion.identity);
+                    ItemParticle.transform.position = position;
                 }
             }
         }
@@ -118,38 +123,32 @@ public class GameManagerScript : MonoBehaviour
             flag = true;
         }
     }
-
-
+  
     // Update is called once per frame
     void Update()
     {
 
-        transform.Rotate(new Vector3(0, 0, 30));
-        if(Player.rand == 1)
+        transform.Rotate(new Vector3(0, 0, 20));
+        
+        if (Car.rand == 1)
         {
 
             scoreText.text = "Up";
             Upflag = true;
 
         }
-        if (Player.rand == 2)
+        if (Car.rand == 2)
         {
             scoreText.text = "Down";
             Downflag = true;
         }
 
-        if (Player.rand == 3)
-        {
-            scoreText.text = "bougai";
-            bougaiflag = true;
-        }
-
-        if (Player.rand == 4)
+        if (Car.rand == 3)
         {
             scoreText.text = "Allup";
             AllUpFlag = true;
         }
-        if (Player.rand == 5)
+        if (Car.rand == 4)
         {
             scoreText.text = "AllDown";
             AllspeedDown = true;

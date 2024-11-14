@@ -21,6 +21,7 @@ public class Line : MonoBehaviour
         if(count == 4 && Point.pointcount == 3)
         {
             SceneManager.LoadScene("TitleScene");
+            Debug.Log(count);
         }
     }
 

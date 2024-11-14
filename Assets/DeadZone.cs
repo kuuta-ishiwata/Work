@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.ComponentModel;
 public class DeadZone : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -20,7 +21,7 @@ public class DeadZone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (life ==0)
+        if (life == 0)
         {
             SceneManager.LoadScene("TitleScene");
         }
@@ -35,8 +36,9 @@ public class DeadZone : MonoBehaviour
         // それ以外のオブジェクトは破壊する
         if (other.CompareTag("Player"))
         {
-            Player player = other.gameObject.GetComponent<Player>();
+            Car player = other.gameObject.GetComponent<Car>();
             player.MoveStartPos();
+            life = -1;
         }
  
         if (life == 0)

@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public static int AllDownCount = 0;
     public static int AllUpCount = 0;
 
-    int deadcount = 0;
+   // int deadcount = 0;
     Vector3 startposition;
     Vector3 velovity = new Vector3(30.0f, 0.0f, 0);
     //Vector3 velocity2 = new Vector3(0.0f, -30.0f, 0);
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
 
 
     }
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Item")
         {
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
         }
 
     }
-
+   */
 
     private void OnCollisionEnter(Collision collsion)
     {
