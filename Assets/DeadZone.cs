@@ -41,6 +41,12 @@ public class DeadZone : MonoBehaviour
             life = -1;
         }
  
+        if(other.CompareTag("Enemy"))
+        {
+            Car2 player = other.gameObject.GetComponent<Car2>();
+
+        }
+
         if (life == 0)
         {
             gameOverText.SetActive(true);

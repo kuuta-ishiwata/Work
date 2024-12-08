@@ -279,4 +279,11 @@ public class Car : MonoBehaviour
             DeadZone.gameOverFlag = true;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+    }
+
+
 }

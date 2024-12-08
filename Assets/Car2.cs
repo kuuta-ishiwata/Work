@@ -13,6 +13,8 @@ public class AxleInfo2
     public WheelCollider rightWheel;
     public bool motor;
     public bool steering;
+
+    
 }
 
 
@@ -42,14 +44,18 @@ public class Car2 : MonoBehaviour
     public float Break;
     private int PointIndex = 0; 
     public Transform[] Point;
-  
 
+    [SerializeField]
+    [Tooltip("エネミーのプレハブを設定")]
+    private GameObject enemyPrefab;
+
+    private Vector3 enemyPosiiton;
 
     // Start is called before the first frame update
     void Start()
     {
-
-
+        
+        
 
     }
 
@@ -79,14 +85,17 @@ public class Car2 : MonoBehaviour
                 axleInfo.leftWheel.motorTorque = motor;
                 axleInfo.rightWheel.motorTorque = motor;
             }
-           // if (Vector3.Distance(transform.position, Point[PointIndex].position) < 3.0f)
-           // {
-           //     axleInfo.leftWheel.brakeTorque = Break;
-           //     axleInfo.rightWheel.brakeTorque = Break;
-           //     axleInfo.leftWheel.motorTorque = 0;
-           //     axleInfo.rightWheel.motorTorque = 0;
-           // }
+            // if (Vector3.Distance(transform.position, Point[PointIndex].position) < 3.0f)
+            // {
+            //     axleInfo.leftWheel.brakeTorque = Break;
+            //     axleInfo.rightWheel.brakeTorque = Break;
+            //     axleInfo.leftWheel.motorTorque = 0;
+            //     axleInfo.rightWheel.motorTorque = 0;
+            // }
+           // WheelFrictionCurve frictionCurve = new WheelFrictionCurve();
+
            
+       
 
             ApplyLocalPositionToVisuals(axleInfo.leftWheel);
             ApplyLocalPositionToVisuals(axleInfo.rightWheel);
@@ -101,6 +110,12 @@ public class Car2 : MonoBehaviour
             PointIndex = (PointIndex + 1) % Point.Length;
         }
 
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if(rb.velocity.magnitude>maxMotorTorque)
+        {
+            rb.velocity = rb.velocity.normalized* maxMotorTorque;
+        }
+
         //if (Vector3.Distance(transform.position, target2.position) > 1f)
         //{
         //    transform.LookAt(target3);
@@ -112,6 +127,7 @@ public class Car2 : MonoBehaviour
         //    transform.Translate(Vector3.forward * speed * Time.deltaTime);
         //}
 
+        
 
     }
 
@@ -132,8 +148,16 @@ public class Car2 : MonoBehaviour
         VisualWheel.transform.position = position;
         VisualWheel.transform.rotation = rotation;
 
-            
     }
 
+    public void MoveStatePos()
+    {
+
+        GameObject enemyobject = GameObject.Find(enemyPrefab.name);
+
+        GameObject newEnemyObj = Instantiate(enemyPrefab, enemyPosiiton, Quaternion.identity);
+
+        enemyPosiiton = enemyobject.transform.position;
+    }
 
 }

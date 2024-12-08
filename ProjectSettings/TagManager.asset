@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Iten
   - Item
+  - Enemy
   layers:
   - Default
   - TransparentFX
